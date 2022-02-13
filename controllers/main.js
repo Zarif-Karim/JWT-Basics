@@ -1,4 +1,4 @@
-const CustomAPIError = require('../errors/custom-error');
+const {BadRequestError} = require('../errors');
 const {StatusCodes} = require('http-status-codes');
 const JWT = require('jsonwebtoken');
 
@@ -6,7 +6,7 @@ const create_user = async (req,res) => {
     const {username, password} = req.body;
     
     if(!username || !password){
-        throw new CustomAPIError('Please enter both username and password!', StatusCodes.BAD_REQUEST);
+        throw new BadRequestError('Please enter both username and password!');
     }
 
     //make fake ID

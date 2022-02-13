@@ -1,12 +1,11 @@
-const CustomAPIError = require("../errors/custom-error");
-const { StatusCodes } = require('http-status-codes');
+const {UnauthorisedError} = require("../errors");
 const JWT = require('jsonwebtoken');
 
 const authMiddleware = async (req,res,next) => {
     const auth = req.headers.authorization;
 
     if(!auth || !auth.startsWith('Bearer ')){
-        throw new CustomAPIError('Invalid/No Token Provided', StatusCodes.BAD_REQUEST);
+        throw new UnauthorisedError('Invalid/No Token Provided');
     }
 
     const token = auth.split(" ")[1];
@@ -16,7 +15,7 @@ const authMiddleware = async (req,res,next) => {
         req.user = decoded;
         next();
     } catch(error) {
-        throw new CustomAPIError('Invalid/No Token Provided', StatusCodes.BAD_REQUEST);
+        throw new UnauthorisedError('Invalid/No Token Provided');
     }
 };
 
