@@ -7,6 +7,6 @@ const {
 } = require('../controllers/main');
 
 router.route('/login').post(create_user);
-router.route('/dashboard').get(get_dashboard);
+router.route('/dashboard').get(authMiddleware, get_dashboard);
 
 module.exports = router;

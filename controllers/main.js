@@ -21,21 +21,10 @@ const create_user = async (req,res) => {
 
 
 const get_dashboard = async(req,res) => {
-    const token = req.headers.authorization.split(" ")[1];
-
-    try{
-        const decoded = JWT.verify(token,process.env.JWT_SECRET);
-        req.user = decoded;
-        //check if token is valid. once valid check if any existing user in real projects
-        //console.log({token, decoded});
-        res.status(StatusCodes.OK).json({ 
-            msg : `Hi ${req.user.username}`, 
-            secret : `Your Secret Data: ${Math.floor(Math.random()*100)}`
-        });
-    } catch(error) {
-        throw new CustomAPIError('Invalid/No Token Provided', StatusCodes.BAD_REQUEST);
-    }
-        
+    res.status(StatusCodes.OK).json({ 
+        msg : `Hi ${req.user.username}`, 
+        secret : `Your Secret Data: ${Math.floor(Math.random()*100)}`
+    });
 };
 
 
