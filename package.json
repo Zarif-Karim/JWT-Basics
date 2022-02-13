@@ -1,0 +1,35 @@
+{
+  "name": "jwt-basics",
+  "version": "1.0.0",
+  "description": "Learning about JSON Web Tokens for authentication and path restriction.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zarif-Karim/JWT-Basics.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "JWT"
+  ],
+  "author": "Zarif Karim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zarif-Karim/JWT-Basics/issues"
+  },
+  "homepage": "https://github.com/Zarif-Karim/JWT-Basics#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
